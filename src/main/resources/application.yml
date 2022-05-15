@@ -1,0 +1,35 @@
+server:
+  port: 8085
+  shutdown: graceful
+
+spring:
+  mvc:
+    pathmatch:
+      matching-strategy: ANT_PATH_MATCHER
+  servlet:
+    multipart:
+      max-file-size: 5MB
+      max-request-size: 20MB
+  jpa:
+    open-in-view: false
+
+upload:
+  path: "nfs 설정해놓은 원격 도메인"
+  protocol: https://
+
+test:
+  base_url: https://www.inflearn.com/api/course
+
+cloud:
+  aws:
+    credentials:
+      access-key: aa
+      secret-key: aa
+    s3:
+      bucket: aa
+    region:
+      static: ap-northeast-2
+    stack:
+      auto: false
+
+---

@@ -1,0 +1,7 @@
+POST {{backend_api}}/api/v1/alarm/callback
+Content-Type: application/json
+
+{
+  "storeId": 1,
+  "broadcastId": 1
+}
