@@ -1,4 +1,4 @@
-package com.platform.example;
+package com.platform.example.NfsAndS3;
 
 import com.amazonaws.services.s3.model.ObjectMetadata;
 import com.platform.domain.image.ImageComponent;

@@ -1,4 +1,4 @@
-package com.platform.example;
+package com.platform.example.NfsAndS3;
 
 import lombok.Data;
 import org.springframework.boot.context.properties.ConfigurationProperties;

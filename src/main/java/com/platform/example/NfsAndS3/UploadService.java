@@ -1,4 +1,4 @@
-package com.platform.example;
+package com.platform.example.NfsAndS3;
 
 import com.platform.domain.image.ImageType;
 import org.springframework.web.multipart.MultipartFile;

@@ -1,4 +1,4 @@
-package com.platform.example;
+package com.platform.example.NfsAndS3;
 
 import com.platform.domain.image.ImageType;
 import com.platform.exception.errorCode.ValidationException;

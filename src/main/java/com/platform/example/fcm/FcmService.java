@@ -1,4 +1,4 @@
-package com.platform.example;
+package com.platform.example.fcm;
 
 import com.platform.example.dto.alarm.request.AlarmRequest;
 import com.platform.utils.event.alarm.request.AlarmEvent;
@@ -13,7 +13,7 @@ import java.util.List;
 
 @Service
 @RequiredArgsConstructor
-public class ExampleService {
+public class FcmService {
 
     private final TestFeignClient testFeignClient;
     private final ApplicationEventPublisher eventPublisher;
