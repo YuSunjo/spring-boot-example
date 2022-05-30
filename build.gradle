@@ -45,7 +45,7 @@ dependencies {
     // todo db dependency 추가
     compile group: 'org.mariadb.jdbc', name: 'mariadb-java-client', version: '2.2.1'
     runtimeOnly 'org.mariadb.jdbc:mariadb-java-client'
-    compile('mysql:mysql-connector-java:8.0.28')
+    compile('mysql:mysql-connector-java:8.0.29')
 
     annotationProcessor 'org.projectlombok:lombok'
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
@@ -77,6 +77,11 @@ dependencies {
 
     // s3
     implementation group: 'org.springframework.cloud', name: 'spring-cloud-starter-aws', version: '2.2.1.RELEASE'
+
+    // graphql
+    implementation 'com.graphql-java:graphql-spring-boot-starter:5.0.2'
+    implementation 'com.graphql-java:graphql-java-tools:5.2.4'
+    implementation 'io.leangen.graphql:graphql-spqr-spring-boot-starter:0.0.4'
 }
 
 //querydsl 추가 시작

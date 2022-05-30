@@ -20,4 +20,8 @@ public class User extends BaseTimeEntity {
 
     private String age;
 
+    public User(String name, String age) {
+        this.name = name;
+        this.age = age;
+    }
 }

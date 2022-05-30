@@ -1,0 +1,27 @@
+###
+POST {{backend_api}}/graphql
+Content-Type: application/graphql
+
+mutation {
+  createUser(createUserRequest: {
+    name: "hello",
+    age: "10"
+  }
+  ) {
+  id
+  name
+  age
+}
+}
+
+###
+POST {{backend_api}}/graphql
+Content-Type: application/graphql
+
+query {
+    getUser(id: 1) {
+        id
+        name
+        age
+    }
+}

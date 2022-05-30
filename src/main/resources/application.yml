@@ -32,4 +32,12 @@ cloud:
     stack:
       auto: false
 
+graphql:
+  servlet:
+    enabled: true
+    mapping: /graphql
+  spqr:
+    gui:
+      enabled: true
+
 ---
