@@ -1,14 +1,12 @@
 package com.platform.domain.board;
 
+import com.platform.domain.user.User;
 import io.leangen.graphql.annotations.types.GraphQLType;
 import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
@@ -24,12 +22,14 @@ public class Board {
 
     private String content;
 
-    private Long userId;
+    @ManyToOne
+    @JoinColumn(name = "user_id")
+    private User user;
 
-    public Board(String title, String content, Long userId) {
+    public Board(String title, String content, User user) {
         this.title = title;
         this.content = content;
-        this.userId = userId;
+        this.user = user;
     }
 
 }

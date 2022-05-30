@@ -2,6 +2,8 @@ package com.platform.example.graphql.board;
 
 import com.platform.domain.board.Board;
 import com.platform.domain.board.repository.BoardRepository;
+import com.platform.domain.user.User;
+import com.platform.domain.user.repository.UserRepository;
 import com.platform.example.dto.board.BoardInfoResponse;
 import com.platform.example.dto.board.CreateBoardRequest;
 import com.platform.exception.errorCode.NotFoundException;
@@ -10,12 +12,15 @@ import io.leangen.graphql.annotations.GraphQLQuery;
 import io.leangen.graphql.spqr.spring.annotations.GraphQLApi;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 @Service
 @RequiredArgsConstructor
 @GraphQLApi
+@Transactional
 public class GraphQlBoardService {
 
+    private final UserRepository userRepository;
     private final BoardRepository boardRepository;
 
     @GraphQLQuery
@@ -27,7 +32,9 @@ public class GraphQlBoardService {
 
     @GraphQLMutation
     public BoardInfoResponse createBoard(CreateBoardRequest request) {
-        Board board = boardRepository.save(request.toEntity());
+        User user = userRepository.findById(request.getUserId())
+                .orElseThrow(() -> new NotFoundException("존재하지 않는 유저입니다."));
+        Board board = boardRepository.save(request.toEntity(user));
         return BoardInfoResponse.of(board);
     }
 
