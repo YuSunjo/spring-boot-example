@@ -3,7 +3,7 @@ POST {{backend_api}}/graphql
 Content-Type: application/graphql
 
 mutation {
-  createUser(createUserRequest: {
+  createUser(request: {
     name: "hello",
     age: "10"
   }
@@ -19,9 +19,40 @@ POST {{backend_api}}/graphql
 Content-Type: application/graphql
 
 query {
-    getUser(id: 1) {
+    user(id: 1) {
         id
         name
         age
+    }
+}
+
+###
+POST {{backend_api}}/graphql
+Content-Type: application/graphql
+
+mutation {
+  createBoard(request: {
+    title: "title~",
+    content: "content~"
+    userId: 1
+  }
+  ) {
+  id
+  title
+  content
+  userId
+}
+}
+
+###
+POST {{backend_api}}/graphql
+Content-Type: application/graphql
+
+query {
+    board(id: 1) {
+        id
+        title
+        content
+        userId
     }
 }
