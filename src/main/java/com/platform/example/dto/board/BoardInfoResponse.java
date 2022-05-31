@@ -13,17 +13,15 @@ public class BoardInfoResponse {
     private Long id;
     private String title;
     private String content;
-    private UserInfoResponse user;
 
-    public BoardInfoResponse(Long id, String title, String content, UserInfoResponse user) {
+    public BoardInfoResponse(Long id, String title, String content) {
         this.id = id;
         this.title = title;
         this.content = content;
-        this.user = user;
     }
 
     public static BoardInfoResponse of(Board board) {
-        return new BoardInfoResponse(board.getId(), board.getTitle(), board.getContent(), UserInfoResponse.of(board.getUser()));
+        return new BoardInfoResponse(board.getId(), board.getTitle(), board.getContent());
     }
 
 }

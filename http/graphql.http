@@ -30,6 +30,19 @@ query {
 POST {{backend_api}}/graphql
 Content-Type: application/graphql
 
+query {
+  findAllUser {
+    boardList {
+      id
+      content
+    }
+  }
+}
+
+###
+POST {{backend_api}}/graphql
+Content-Type: application/graphql
+
 mutation {
   createBoard(request: {
     title: "title~",
@@ -56,9 +69,29 @@ query {
         id
         title
         content
-        user {
-          id
-          name
-        }
     }
 }
+
+###
+POST {{backend_api}}/graphql
+Content-Type: application/graphql
+
+query {
+    findAllBoard() {
+        id
+        title
+        content
+    }
+}
+
+###
+POST {{backend_api}}/graphql
+Content-Type: application/graphql
+
+ query {
+     findAllBoard {
+         id
+         title
+         content
+     }
+ }

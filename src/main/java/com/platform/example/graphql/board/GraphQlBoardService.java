@@ -14,6 +14,9 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.List;
+import java.util.stream.Collectors;
+
 @Service
 @RequiredArgsConstructor
 @GraphQLApi
@@ -28,6 +31,12 @@ public class GraphQlBoardService {
         Board board = boardRepository.findById(id)
                 .orElseThrow(() -> new NotFoundException("존재하지 않는 유저입니다."));
         return BoardInfoResponse.of(board);
+    }
+
+    @GraphQLQuery
+    public List<BoardInfoResponse> findAllBoard() {
+        return boardRepository.findBoardAll().stream().map(BoardInfoResponse::of).collect(Collectors.toList());
+//        return boardRepository.findAll().stream().map(BoardInfoResponse::of).collect(Collectors.toList());
     }
 
     @GraphQLMutation

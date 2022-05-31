@@ -12,6 +12,9 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.List;
+import java.util.stream.Collectors;
+
 @Service
 @RequiredArgsConstructor
 @GraphQLApi
@@ -22,9 +25,16 @@ public class GraphQLUserService {
 
     @GraphQLQuery
     public UserInfoResponse getUser(Long id) {
-        User user = userRepository.findById(id)
+//        User user = userRepository.findById(id)
+//                .orElseThrow(() -> new NotFoundException("존재하지 않는 유저입니다."));
+        User user = userRepository.findUserById(id)
                 .orElseThrow(() -> new NotFoundException("존재하지 않는 유저입니다."));
         return UserInfoResponse.of(user);
+    }
+
+    @GraphQLQuery
+    public List<UserInfoResponse> findAllUser() {
+        return userRepository.findAllUser().stream().map(UserInfoResponse::of).collect(Collectors.toList());
     }
 
     @GraphQLMutation
