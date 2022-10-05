@@ -14,7 +14,10 @@ public enum ErrorCode {
     JWT_UNAUTHORIZED_EXCEPTION("403", "인증 에러입니다."),
     CONFLICT_EXCEPTION("409", "이미 존재합니다."),
     VALIDATION_EXCEPTION("400", "잘못된 입력입니다."),
-    ASYNC_EXCEPTION("410", "비동기 처리하는데 문제가 생겼습니다.");
+    ASYNC_EXCEPTION("410", "비동기 처리하는데 문제가 생겼습니다."),
+    API_CALLER("411", "외부 API 호출중에 예외가 발생했습니다."),
+    TIMEOUT_EXCEPTION("412", "외부 API 호출중에 타임아웃이 발생했습니다."),
+    ;
 
     private final String code;
     private final String message;

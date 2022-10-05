@@ -19,6 +19,7 @@ upload:
 
 test:
   base_url: https://www.inflearn.com/api/course
+  blog_url: https://api-lovga.site
 
 cloud:
   aws:

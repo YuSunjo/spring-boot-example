@@ -15,14 +15,7 @@ import java.util.List;
 @RequiredArgsConstructor
 public class FcmService {
 
-    private final TestFeignClient testFeignClient;
     private final ApplicationEventPublisher eventPublisher;
-
-    public TestResponse test(String lecture, String lectureId) {
-        TestResponse newBOX = testFeignClient.test(lecture, lectureId);
-        System.out.println("newBOX = " + newBOX);
-        return newBOX;
-    }
 
     @Transactional
     public void alarm(AlarmRequest request) {

@@ -7,11 +7,11 @@ import org.springframework.web.bind.annotation.PathVariable;
 
 @FeignClient(
         name = "testFeignClient",
-        url = "${test.base_url}",
+        url = "${test.blog_url}",
         configuration = FeignClientConfig.class)
 public interface TestFeignClient {
 
-    @GetMapping(value = "{url}/lecture/{lectureId}", produces = "application/json")
-    TestResponse test(@PathVariable String url, @PathVariable String lectureId);
+    @GetMapping(value = "ping", produces = "application/json")
+    String ping();
 
 }
