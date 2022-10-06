@@ -4,3 +4,30 @@ Content-Type: application/json
 {
   "message": "hello redis"
 }
+
+### save
+POST {{backend_api}}/api/v1/redis/cache
+Content-Type: application/json
+
+{
+  "title": "redisCacheBoard",
+  "content": "redisCacheBoard"
+}
+
+### list
+GET {{backend_api}}/api/v1/redis/cache
+
+### get
+GET {{backend_api}}/api/v1/redis/cache/1
+
+### update
+PUT {{backend_api}}/api/v1/redis/cache/1
+Content-Type: application/json
+
+{
+  "title": "redisCacheBoardUpdate",
+  "content": "redisCacheBoardUpdate"
+}
+
+### delete
+DELETE {{backend_api}}/api/v1/redis/cache/1
