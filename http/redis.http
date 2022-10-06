@@ -1,0 +1,6 @@
+POST {{backend_api}}/api/v1/redis
+Content-Type: application/json
+
+{
+  "message": "hello redis"
+}
